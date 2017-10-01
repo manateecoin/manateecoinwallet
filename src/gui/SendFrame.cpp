@@ -57,7 +57,7 @@ void SendFrame::clearAllClicked() {
   m_transfers.clear();
   addRecipientClicked();
   m_ui->m_paymentIdEdit->clear();
-  m_ui->m_mixinSlider->setValue(2);
+  m_ui->m_mixinSlider->setValue(0);
 }
 
 void SendFrame::sendClicked() {
