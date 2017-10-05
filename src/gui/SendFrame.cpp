@@ -98,6 +98,7 @@ void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _er
     QCoreApplication::postEvent(
       &MainWindow::instance(),
       new ShowMessageEvent(_errorText, QtCriticalMsg));
+	  clearAllClicked();
   } else {
     clearAllClicked();
   }
