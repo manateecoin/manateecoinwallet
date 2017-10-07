@@ -349,6 +349,8 @@ void WalletAdapter::sendTransactionCompleted(CryptoNote::TransactionId _transact
 
 void WalletAdapter::onWalletSendTransactionCompleted(CryptoNote::TransactionId _transactionId, int _error, const QString& _errorText) {
   if (_error) {
+	/*TODO: Add error handling*/
+	Q_EMIT walletTransactionCreatedSignal(_transactionId);
     return;
   }
 
