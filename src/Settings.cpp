@@ -14,6 +14,7 @@
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
 #include "Settings.h"
+#include "version.h"
 
 namespace WalletGui {
 
@@ -118,7 +119,7 @@ bool Settings::isEncrypted() const {
 }
 
 QString Settings::getVersion() const {
-  return GIT_REVISION;
+  return PROJECT_VERSION_LONG;
 }
 
 bool Settings::isStartOnLoginEnabled() const {
