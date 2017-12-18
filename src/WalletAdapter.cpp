@@ -6,6 +6,7 @@
 #include <QDateTime>
 #include <QLocale>
 #include <QVector>
+#include <QMessageBox>
 
 #include <Common/Util.h>
 #include <Wallet/WalletErrors.h>
@@ -104,10 +105,12 @@ void WalletAdapter::open(const QString& _password) {
   } else {
     Settings::instance().setEncrypted(false);
     try {
+      QMessageBox::information(nullptr, QObject::tr("Information"), QObject::tr("Generating a new wallet. Please back up your wallet after ManateeCoin is loaded."));
       m_wallet->initAndGenerate("");
     } catch (std::system_error&) {
       delete m_wallet;
       m_wallet = nullptr;
+	  QMessageBox::warning(nullptr, QObject::tr("Fail"), QObject::tr("New wallet generation failed."));
     }
   }
 }
